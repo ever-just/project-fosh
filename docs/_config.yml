@@ -1,7 +1,7 @@
 title: Project Fosh
 description: Secure API Key Management Chrome Extension
-url: ""
-baseurl: ""
+url: "https://ever-just.github.io"
+baseurl: "/project-fosh"
 
 # GitHub Pages settings
 plugins:
@@ -24,7 +24,7 @@ header_pages:
 
 # Footer links
 social_links:
-  github: # Add your GitHub username when you create the repo
+  github: ever-just
 
 # Google Analytics (optional)
 # google_analytics: 

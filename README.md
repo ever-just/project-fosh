@@ -2,7 +2,7 @@
 
 A secure and user-friendly Chrome extension for storing and managing your API keys with a beautiful modern interface.
 
-🌐 **[Privacy Policy](https://yourusername.github.io/project-fosh/)** | 📦 **[GitHub Repository](https://github.com/yourusername/project-fosh)**
+🌐 **[Privacy Policy](https://ever-just.github.io/project-fosh/)** | 📦 **[GitHub Repository](https://github.com/ever-just/project-fosh)**
 
 ## ✨ Features
 
@@ -162,9 +162,9 @@ If you encounter any issues or have suggestions for improvements, please:
 
 ## 🌐 Links
 
-- **Privacy Policy**: [https://yourusername.github.io/project-fosh/](https://yourusername.github.io/project-fosh/)
-- **GitHub Repository**: [https://github.com/yourusername/project-fosh](https://github.com/yourusername/project-fosh)
-- **Report Issues**: [GitHub Issues](https://github.com/yourusername/project-fosh/issues)
+- **Privacy Policy**: [https://ever-just.github.io/project-fosh/](https://ever-just.github.io/project-fosh/)
+- **GitHub Repository**: [https://github.com/ever-just/project-fosh](https://github.com/ever-just/project-fosh)
+- **Report Issues**: [GitHub Issues](https://github.com/ever-just/project-fosh/issues)
 
 ## 📄 Privacy & Security
 
@@ -175,4 +175,4 @@ Project Fosh is designed with privacy as a core principle:
 - ✅ **Open Source** - Code is fully transparent and auditable
 - ✅ **Minimal Permissions** - Only requires storage and clipboard access
 
-Read our full [Privacy Policy](https://yourusername.github.io/project-fosh/) for complete details. 
+Read our full [Privacy Policy](https://ever-just.github.io/project-fosh/) for complete details. 

@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Project Fosh",
+  "name": "API Key Manager",
   "version": "1.0",
   "description": "Securely store and manage your API keys with ease",
   "permissions": [
@@ -9,7 +9,7 @@
   ],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Project Fosh"
+    "default_title": "API Key Manager"
   },
   "background": {
     "service_worker": "background.js"

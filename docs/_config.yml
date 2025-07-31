@@ -20,7 +20,7 @@ email: company@everjust.com
 
 # Navigation
 header_pages:
-  - privacy.md
+  - privacy.html
 
 # Footer links
 social_links:

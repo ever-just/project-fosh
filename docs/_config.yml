@@ -1,7 +1,7 @@
 title: Project Fosh
 description: Secure API Key Management Chrome Extension
-url: "https://ever-just.github.io"
-baseurl: "/project-fosh"
+url: "https://keymanager.dev"
+baseurl: ""
 
 # GitHub Pages settings
 plugins:

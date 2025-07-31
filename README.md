@@ -1,4 +1,4 @@
-# 🔐 Project Fosh - Chrome Extension
+# 🔐 API Key Manager - Chrome Extension (Project Fosh)
 
 A secure and user-friendly Chrome extension for storing and managing your API keys with a beautiful modern interface.
 

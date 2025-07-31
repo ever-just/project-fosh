@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changelog - Key Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .nav-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background: white;
+            color: #667eea;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .version {
+            margin-bottom: 40px;
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+        }
+        
+        .version-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .version-number {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #667eea;
+            margin-right: 15px;
+        }
+        
+        .version-date {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .version-type {
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-left: 15px;
+        }
+        
+        .version-type.major {
+            background: #e74c3c;
+        }
+        
+        .version-type.minor {
+            background: #f39c12;
+        }
+        
+        .version-type.patch {
+            background: #27ae60;
+        }
+        
+        .change-category {
+            margin-bottom: 20px;
+        }
+        
+        .change-category h4 {
+            color: #555;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .change-category.new h4 {
+            color: #27ae60;
+        }
+        
+        .change-category.improved h4 {
+            color: #3498db;
+        }
+        
+        .change-category.fixed h4 {
+            color: #f39c12;
+        }
+        
+        .change-category.security h4 {
+            color: #e74c3c;
+        }
+        
+        .change-list {
+            list-style: none;
+            margin-left: 20px;
+        }
+        
+        .change-list li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .change-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .github-link {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        
+        .github-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .version-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .version-type {
+                margin-left: 0;
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📋 Changelog</h1>
+            <p>Track all updates and improvements to Key Manager</p>
+            <a href="/project-fosh/" class="nav-link">← Back to Home</a>
+        </div>
+        
+        <div class="content">
+            <!-- Version 1.0.0 -->
+            <div class="version">
+                <div class="version-header">
+                    <span class="version-number">v1.0.0</span>
+                    <span class="version-date">January 29, 2025</span>
+                    <span class="version-type major">Initial Release</span>
+                </div>
+                
+                <div class="change-category new">
+                    <h4>🎉 New Features</h4>
+                    <ul class="change-list">
+                        <li>Chrome extension for secure API key storage</li>
+                        <li>Local-only storage using Chrome's secure storage API</li>
+                        <li>One-click copy to clipboard functionality</li>
+                        <li>API key masking for security (shows only first/last 4 characters)</li>
+                        <li>Add, edit, and delete API keys with custom names and descriptions</li>
+                        <li>Search functionality to quickly find keys</li>
+                        <li>Beautiful, responsive user interface</li>
+                        <li>No account required, no data collection</li>
+                    </ul>
+                </div>
+                
+                <div class="change-category security">
+                    <h4>🔒 Security Features</h4>
+                    <ul class="change-list">
+                        <li>100% local storage - data never leaves your device</li>
+                        <li>No network requests or external connections</li>
+                        <li>Minimal permissions (storage and clipboard only)</li>
+                        <li>Chrome's built-in security mechanisms</li>
+                        <li>Data isolation from other extensions and websites</li>
+                    </ul>
+                </div>
+                
+                <div class="change-category">
+                    <h4>🛠️ Technical Details</h4>
+                    <ul class="change-list">
+                        <li>Manifest V3 Chrome extension</li>
+                        <li>Vanilla JavaScript (no frameworks)</li>
+                        <li>Modern CSS with animations and transitions</li>
+                        <li>Responsive design for all screen sizes</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Future versions will be added here -->
+            <div class="version">
+                <div class="version-header">
+                    <span class="version-number">Coming Soon</span>
+                    <span class="version-date">TBD</span>
+                    <span class="version-type minor">Feature Updates</span>
+                </div>
+                
+                <div class="change-category new">
+                    <h4>🎯 Planned Features</h4>
+                    <ul class="change-list">
+                        <li>Tags and categories for better organization</li>
+                        <li>Export/import functionality</li>
+                        <li>Dark mode theme</li>
+                        <li>Keyboard shortcuts</li>
+                        <li>Key usage analytics (local only)</li>
+                        <li>Multiple vault support</li>
+                        <li>Advanced search filters</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="background: #f8f9ff; padding: 20px; border-radius: 10px; margin-top: 40px; text-align: center;">
+                <h3 style="color: #667eea; margin-bottom: 10px;">📝 Stay Updated</h3>
+                <p style="color: #666; margin-bottom: 15px;">
+                    Want to request a feature or report a bug?
+                </p>
+                <p>
+                    <a href="/project-fosh/request-feature/" style="color: #667eea; text-decoration: none; font-weight: 600;">Submit Feature Request</a> | 
+                    <a href="https://github.com/ever-just/project-fosh/issues" class="github-link">GitHub Issues</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

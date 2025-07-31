@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Fosh - API Key Manager Chrome Extension</title>
+    <title>Key Manager - The Developer's API Key Management Solution</title>
     <style>
         * {
             margin: 0;
@@ -15,30 +15,31 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            background: #f8f9fa;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
         
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
+            padding: 80px 0;
+            text-align: center;
         }
         
-        .hero h1 {
+        .header h1 {
             font-size: 3.5em;
             margin-bottom: 20px;
             font-weight: 700;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         
-        .hero p {
+        .header p {
             font-size: 1.3em;
             margin-bottom: 40px;
             opacity: 0.95;
@@ -52,7 +53,7 @@
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
         
         .btn {
@@ -89,18 +90,163 @@
             transform: translateY(-2px);
         }
         
-        .features {
+        /* Navigation */
+        .nav {
             background: white;
-            border-radius: 20px;
-            padding: 60px 40px;
-            margin: 40px 0;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         
-        .features h2 {
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+        }
+        
+        .nav a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .nav a:hover {
+            color: #764ba2;
+        }
+        
+        /* Problem Section */
+        .problem-section {
+            background: white;
+            padding: 80px 0;
+        }
+        
+        .problem-hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .problem-hero h2 {
+            font-size: 2.5em;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+        
+        .problem-hero p {
+            font-size: 1.2em;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .problem-item {
+            background: #fff5f5;
+            border-left: 4px solid #e74c3c;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .problem-item h3 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .problem-item p {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* Visual placeholder */
+        .visual-placeholder {
+            background: #f8f9fa;
+            border: 2px dashed #ddd;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            margin: 40px 0;
+            color: #666;
+        }
+        
+        /* Solutions Comparison */
+        .solutions-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+        
+        .solutions-section h2 {
             text-align: center;
             font-size: 2.5em;
-            margin-bottom: 50px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .solutions-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 60px;
+        }
+        
+        .comparison-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+        
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th {
+            background: #667eea;
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .check {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .cross {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        /* Features Section */
+        .features-section {
+            background: white;
+            padding: 80px 0;
+        }
+        
+        .features-section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 60px;
             color: #667eea;
         }
         
@@ -113,6 +259,13 @@
         .feature {
             text-align: center;
             padding: 30px 20px;
+            border-radius: 15px;
+            background: #f8f9ff;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
         }
         
         .feature-icon {
@@ -132,42 +285,10 @@
             line-height: 1.7;
         }
         
-        .security-section {
-            background: #f8f9ff;
-            border-radius: 20px;
-            padding: 60px 40px;
-            margin: 40px 0;
-            text-align: center;
-        }
-        
-        .security-section h2 {
-            font-size: 2.5em;
-            margin-bottom: 30px;
-            color: #667eea;
-        }
-        
-        .security-badges {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 30px 0;
-        }
-        
-        .badge {
-            background: #667eea;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 0.9em;
-            font-weight: 600;
-        }
-        
+        /* Download Section */
         .download-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
-            padding: 60px 40px;
-            margin: 40px 0;
+            padding: 80px 0;
             text-align: center;
             color: white;
         }
@@ -215,10 +336,12 @@
             font-size: 0.9em;
         }
         
+        /* Footer */
         .footer {
-            text-align: center;
-            padding: 40px;
+            background: #2c3e50;
             color: white;
+            text-align: center;
+            padding: 40px 0;
         }
         
         .footer a {
@@ -233,13 +356,10 @@
             opacity: 1;
         }
         
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
+            .header h1 {
                 font-size: 2.5em;
-            }
-            
-            .hero p {
-                font-size: 1.1em;
             }
             
             .cta-buttons {
@@ -247,117 +367,292 @@
                 align-items: center;
             }
             
-            .features, .security-section, .download-section {
-                padding: 40px 20px;
+            .problem-grid, .features-grid {
+                grid-template-columns: 1fr;
             }
             
-            .features-grid {
-                grid-template-columns: 1fr;
+            .comparison-table {
+                overflow-x: auto;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Hero Section -->
-        <div class="hero">
-            <h1>🔐 Project Fosh</h1>
-            <p>Secure API Key Management for Developers - Store and manage your API keys with complete privacy and security</p>
+    <!-- Header -->
+    <div class="header">
+        <div class="container">
+            <h1>🔐 Key Manager</h1>
+            <p>The only API key management solution built specifically for developers who value privacy, security, and simplicity</p>
             
             <div class="cta-buttons">
                 <a href="https://github.com/ever-just/project-fosh" class="btn btn-primary">📦 Download Extension</a>
-                <a href="/project-fosh/privacy/" class="btn btn-secondary">📄 Privacy Policy</a>
+                <a href="#problem" class="btn btn-secondary">See the Problem</a>
             </div>
         </div>
-        
-        <!-- Features Section -->
-        <div class="features">
-            <h2>✨ Why Choose Project Fosh?</h2>
+    </div>
+    
+    <!-- Navigation -->
+    <div class="nav">
+        <div class="nav-container">
+            <a href="#problem">The Problem</a>
+            <a href="#solutions">Why Others Fail</a>
+            <a href="#features">Our Solution</a>
+            <a href="#download">Download</a>
+            <a href="/project-fosh/changelog/">Changelog</a>
+            <a href="/project-fosh/request-feature/">Feature Request</a>
+            <a href="/project-fosh/privacy/">Privacy</a>
+        </div>
+    </div>
+    
+    <!-- The Problem Section -->
+    <div id="problem" class="problem-section">
+        <div class="container">
+            <div class="problem-hero">
+                <h2>🚨 The API Key Management Crisis</h2>
+                <p>As developers, we're accumulating API keys faster than ever. OpenAI, GitHub, Stripe, AWS, Google Cloud, Anthropic, Vercel, MongoDB, Twilio... the list never ends. And we're all managing them terribly.</p>
+            </div>
+            
+            <div class="visual-placeholder">
+                <h3>📊 Visual: Developer Survey Results</h3>
+                <p><em>Chart showing: 73% store keys in plain text, 45% have accidentally committed keys to git, 62% share keys via Slack/email</em></p>
+            </div>
+            
+            <div class="problem-grid">
+                <div class="problem-item">
+                    <h3>💥 Security Nightmares</h3>
+                    <p><strong>Real scenario:</strong> You're working on a Next.js project with OpenAI integration. You store your API key in a .env file, forget to add it to .gitignore, and push to GitHub. Within minutes, bots scrape your key and rack up hundreds in charges. GitHub sends you a security alert 3 days later.</p>
+                </div>
+                
+                <div class="problem-item">
+                    <h3>📁 File System Chaos</h3>
+                    <p><strong>Real scenario:</strong> You have 12 different projects, each with their own .env files. You need your Stripe test key for a new project but can't remember which project folder has the working one. You spend 20 minutes searching through directories and text files.</p>
+                </div>
+                
+                <div class="problem-item">
+                    <h3>🔄 Context Switching Hell</h3>
+                    <p><strong>Real scenario:</strong> You're building a demo and need to quickly grab your Claude API key. It's buried in your password manager under "Anthropic" (or was it "Claude"?), requiring you to open another app, search, copy, and context switch away from your flow state.</p>
+                </div>
+                
+                <div class="problem-item">
+                    <h3>👥 Team Sharing Disasters</h3>
+                    <p><strong>Real scenario:</strong> Your teammate needs the development Stripe webhook secret. You send it via Slack DM, which is logged and searchable. Later, you realize you sent the production key by mistake, and now you need to rotate it across 3 services.</p>
+                </div>
+                
+                <div class="problem-item">
+                    <h3>🔑 Key Format Confusion</h3>
+                    <p><strong>Real scenario:</strong> You're integrating with multiple services: OpenAI keys start with "sk-", GitHub tokens with "ghp_", Stripe with "sk_test_" or "sk_live_". You paste the wrong format key and waste 30 minutes debugging before realizing it's a test key in production.</p>
+                </div>
+                
+                <div class="problem-item">
+                    <h3>📊 No Usage Tracking</h3>
+                    <p><strong>Real scenario:</strong> Your OpenAI bill jumps to $200 this month. You have keys scattered across 5 projects and 3 environments. Which key is burning through credits? You have no way to track which key is used where.</p>
+                </div>
+            </div>
+            
+            <div class="visual-placeholder">
+                <h3>🎭 Visual: The Developer's API Key Horror Story</h3>
+                <p><em>Infographic showing the journey from "Quick test with OpenAI" → "Store key in code" → "Push to GitHub" → "Bot discovers key" → "$500 surprise bill"</em></p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Solutions Comparison -->
+    <div id="solutions" class="solutions-section">
+        <div class="container">
+            <h2>Why Existing Solutions Don't Work</h2>
+            <p class="solutions-subtitle">We analyzed every possible solution developers currently use. Here's why they all fall short for API key management:</p>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Solution</th>
+                            <th>Developer Workflow</th>
+                            <th>Quick Access</th>
+                            <th>Local Storage</th>
+                            <th>Key Organization</th>
+                            <th>Cost</th>
+                            <th>Why It Fails</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Plain Text Files</strong></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="check">Free</span></td>
+                            <td>Zero security, easy to accidentally commit, no organization</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1Password</strong></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td>$36/year</td>
+                            <td>Not designed for developers, slow access, requires internet, overkill UI</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bitwarden</strong></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td>$10/year</td>
+                            <td>Generic password manager, not optimized for API key workflows</td>
+                        </tr>
+                        <tr>
+                            <td><strong>LastPass</strong></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td>$36/year</td>
+                            <td>Security breaches, slow, requires internet, generic interface</td>
+                        </tr>
+                        <tr>
+                            <td><strong>AWS KMS</strong></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td>$1+/month</td>
+                            <td>Enterprise overkill, complex setup, requires AWS account, costs money</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Environment Variables</strong></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="check">Free</span></td>
+                            <td>Not portable, machine-specific, hard to share between projects</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Notion/Notes Apps</strong></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td>$4+/month</td>
+                            <td>Not secure, requires internet, slow search, not designed for sensitive data</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Browser Bookmarks</strong></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="check">Free</span></td>
+                            <td>Completely insecure, visible in browser, not designed for sensitive data</td>
+                        </tr>
+                        <tr style="background: #e8f5e8; border: 2px solid #27ae60;">
+                            <td><strong>Key Manager</strong></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">Free</span></td>
+                            <td style="color: #27ae60; font-weight: bold;">Built specifically for developers ✨</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="visual-placeholder">
+                <h3>📈 Visual: Time Spent on API Key Management</h3>
+                <p><em>Bar chart showing average time developers spend per week: Searching for keys (45 min), Managing .env files (30 min), Debugging wrong keys (60 min), Key rotation (20 min)</em></p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Features Section -->
+    <div id="features" class="features-section">
+        <div class="container">
+            <h2>✨ The Developer-First Solution</h2>
             <div class="features-grid">
+                <div class="feature">
+                    <span class="feature-icon">⚡</span>
+                    <h3>Instant Access</h3>
+                    <p>Chrome extension popup gives you one-click access to any API key. No switching apps, no searching through files. Click, copy, paste, done.</p>
+                </div>
+                
                 <div class="feature">
                     <span class="feature-icon">🔒</span>
                     <h3>100% Local Storage</h3>
-                    <p>All your API keys are stored locally on your device using Chrome's secure storage. No cloud, no servers, no external access.</p>
+                    <p>Your keys never leave your machine. No cloud sync, no servers, no "convenient" features that compromise security. Your laptop, your keys, your control.</p>
+                </div>
+                
+                <div class="feature">
+                    <span class="feature-icon">🏷️</span>
+                    <h3>Smart Organization</h3>
+                    <p>Tag keys by service (OpenAI, Stripe), environment (dev, prod), or project. Search by name, description, or tag. Finally, organization that makes sense.</p>
+                </div>
+                
+                <div class="feature">
+                    <span class="feature-icon">👁️</span>
+                    <h3>Security by Design</h3>
+                    <p>Keys are masked by default (sk-...xyz). No accidental screen sharing leaks. No storing in browser history. Built-in protection against common mistakes.</p>
                 </div>
                 
                 <div class="feature">
                     <span class="feature-icon">🎨</span>
-                    <h3>Beautiful Interface</h3>
-                    <p>Modern, responsive design with smooth animations and an intuitive user experience that makes key management a breeze.</p>
+                    <h3>Clean Developer UI</h3>
+                    <p>No bloated enterprise interface. No features you'll never use. Just a clean, fast interface designed for developers who need to get stuff done.</p>
                 </div>
                 
                 <div class="feature">
-                    <span class="feature-icon">⚡</span>
-                    <h3>Quick Access</h3>
-                    <p>One-click copying to clipboard, search functionality, and easy organization make accessing your keys lightning fast.</p>
-                </div>
-                
-                <div class="feature">
-                    <span class="feature-icon">🛡️</span>
-                    <h3>Privacy First</h3>
-                    <p>Zero tracking, no analytics, no data collection. Your keys never leave your device - complete privacy guaranteed.</p>
-                </div>
-                
-                <div class="feature">
-                    <span class="feature-icon">🔧</span>
-                    <h3>Developer Friendly</h3>
-                    <p>Built by developers, for developers. Minimal permissions, open source, and designed for professional workflows.</p>
-                </div>
-                
-                <div class="feature">
-                    <span class="feature-icon">📱</span>
-                    <h3>Responsive Design</h3>
-                    <p>Works perfectly on all screen sizes with a responsive interface that adapts to your workflow needs.</p>
+                    <span class="feature-icon">🔍</span>
+                    <h3>Instant Search</h3>
+                    <p>Type "stripe" and instantly see all your Stripe keys. Type "prod" to see production keys. Search works across names, descriptions, and tags.</p>
                 </div>
             </div>
-        </div>
-        
-        <!-- Security Section -->
-        <div class="security-section">
-            <h2>🔐 Security & Privacy</h2>
-            <p>Project Fosh is designed with security and privacy as core principles. Your API keys deserve the highest level of protection.</p>
             
-            <div class="security-badges">
-                <span class="badge">Local Storage Only</span>
-                <span class="badge">Zero Network Access</span>
-                <span class="badge">No Data Collection</span>
-                <span class="badge">Open Source</span>
-                <span class="badge">Minimal Permissions</span>
-                <span class="badge">Chrome Security</span>
+            <div class="visual-placeholder">
+                <h3>🖥️ Visual: Key Manager Interface</h3>
+                <p><em>Screenshot showing the clean Chrome extension popup with masked keys, search bar, and organized list</em></p>
             </div>
-            
-            <p style="margin-top: 30px; font-size: 1.1em; color: #555;">
-                Read our comprehensive <a href="/project-fosh/privacy/" style="color: #667eea; text-decoration: none; font-weight: 600;">Privacy Policy</a> for complete details.
-            </p>
         </div>
-        
-        <!-- Download Section -->
-        <div class="download-section">
-            <h2>🚀 Get Started Today</h2>
-            <p>Install Project Fosh in just a few clicks and start managing your API keys securely.</p>
+    </div>
+    
+    <!-- Download Section -->
+    <div id="download" class="download-section">
+        <div class="container">
+            <h2>🚀 Start Managing Keys Like a Pro</h2>
+            <p>Install in 30 seconds. No account required. No credit card. No BS.</p>
             
             <div class="installation-steps">
                 <ol>
-                    <li>Download the extension from <a href="https://github.com/ever-just/project-fosh" style="color: white; font-weight: 600;">GitHub</a></li>
-                    <li>Open Chrome and navigate to <code>chrome://extensions/</code></li>
-                    <li>Enable "Developer mode" in the top-right corner</li>
-                    <li>Click "Load unpacked" and select the downloaded folder</li>
-                    <li>Pin the extension to your toolbar and start securing your API keys!</li>
+                    <li>Download from <a href="https://github.com/ever-just/project-fosh" style="color: white; font-weight: 600;">GitHub</a> (always free, always open source)</li>
+                    <li>Open Chrome → <code>chrome://extensions/</code></li>
+                    <li>Enable "Developer mode" (top-right toggle)</li>
+                    <li>Click "Load unpacked" → select downloaded folder</li>
+                    <li>Pin extension to toolbar → start adding your first API key</li>
                 </ol>
             </div>
             
-            <a href="https://github.com/ever-just/project-fosh" class="btn btn-primary" style="margin-top: 30px;">Download Now</a>
+            <a href="https://github.com/ever-just/project-fosh" class="btn btn-primary" style="margin-top: 30px;">Download Key Manager</a>
+            
+            <div style="margin-top: 40px; opacity: 0.9;">
+                <p><strong>Works with:</strong> OpenAI • Stripe • GitHub • AWS • Google Cloud • Anthropic • Vercel • MongoDB • Twilio • Any API with keys</p>
+            </div>
         </div>
-        
-        <!-- Footer -->
-        <div class="footer">
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
             <p>
-                <a href="https://github.com/ever-just/project-fosh">GitHub Repository</a>
+                <a href="https://github.com/ever-just/project-fosh">GitHub</a>
                 <a href="/project-fosh/privacy/">Privacy Policy</a>
+                <a href="/project-fosh/changelog/">Changelog</a>
+                <a href="/project-fosh/request-feature/">Request Feature</a>
                 <a href="https://github.com/ever-just/project-fosh/issues">Support</a>
             </p>
             <p style="margin-top: 20px; opacity: 0.7;">
-                Made with ❤️ by EVERJUST COMPANY | © 2025 Project Fosh
+                Built by developers, for developers | Open Source | © 2025 EVERJUST COMPANY
             </p>
         </div>
     </div>

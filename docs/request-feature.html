@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature Request - Key Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .nav-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background: white;
+            color: #667eea;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-group .description {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .priority-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        
+        .priority-option {
+            position: relative;
+        }
+        
+        .priority-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+        
+        .priority-option label {
+            display: block;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 0;
+        }
+        
+        .priority-option input[type="radio"]:checked + label {
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+        
+        .priority-option .priority-label {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .priority-option .priority-desc {
+            font-size: 0.85em;
+            color: #666;
+        }
+        
+        .submit-btn {
+            background: #667eea;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+        
+        .alternative-options {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .alternative-options h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .alternative-options a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 10px;
+        }
+        
+        .alternative-options a:hover {
+            text-decoration: underline;
+        }
+        
+        .examples {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .examples h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .examples ul {
+            margin-left: 20px;
+            color: #666;
+        }
+        
+        .examples li {
+            margin-bottom: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .priority-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💡 Feature Request</h1>
+            <p>Help us make Key Manager even better for developers</p>
+            <a href="/project-fosh/" class="nav-link">← Back to Home</a>
+        </div>
+        
+        <div class="content">
+            <div class="examples">
+                <h4>💭 What kinds of features are we looking for?</h4>
+                <ul>
+                    <li><strong>Organization:</strong> Tags, categories, folders, smart filters</li>
+                    <li><strong>Developer Experience:</strong> Keyboard shortcuts, CLI integration, IDE plugins</li>
+                    <li><strong>Security:</strong> Additional encryption, audit logs, access controls</li>
+                    <li><strong>Workflow:</strong> Export/import, batch operations, templates</li>
+                    <li><strong>UI/UX:</strong> Dark mode, themes, accessibility improvements</li>
+                </ul>
+            </div>
+            
+            <form action="mailto:company@everjust.com" method="post" enctype="text/plain" id="featureForm">
+                <div class="form-group">
+                    <label for="feature-title">Feature Title *</label>
+                    <input type="text" id="feature-title" name="feature-title" required placeholder="e.g., Dark Mode Theme, Tag System, Export Keys">
+                    <div class="description">Give your feature request a clear, descriptive title</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="feature-description">Detailed Description *</label>
+                    <textarea id="feature-description" name="feature-description" required placeholder="Describe exactly what you want this feature to do. Be as specific as possible - what would you click, what would you see, how would it work?"></textarea>
+                    <div class="description">The more detail you provide, the better we can understand and implement your idea</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="use-case">Your Use Case *</label>
+                    <textarea id="use-case" name="use-case" required placeholder="Why do you need this feature? What problem does it solve for you? How would it improve your workflow?"></textarea>
+                    <div class="description">Help us understand the real-world scenario where this feature would be valuable</div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Priority Level *</label>
+                    <div class="priority-grid">
+                        <div class="priority-option">
+                            <input type="radio" id="low" name="priority" value="low" required>
+                            <label for="low">
+                                <div class="priority-label">🟢 Nice to Have</div>
+                                <div class="priority-desc">Would be cool but not urgent</div>
+                            </label>
+                        </div>
+                        <div class="priority-option">
+                            <input type="radio" id="medium" name="priority" value="medium" required>
+                            <label for="medium">
+                                <div class="priority-label">🟡 Important</div>
+                                <div class="priority-desc">Would significantly improve my workflow</div>
+                            </label>
+                        </div>
+                        <div class="priority-option">
+                            <input type="radio" id="high" name="priority" value="high" required>
+                            <label for="high">
+                                <div class="priority-label">🔴 Critical</div>
+                                <div class="priority-desc">Prevents me from using Key Manager effectively</div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="your-name">Your Name (Optional)</label>
+                    <input type="text" id="your-name" name="your-name" placeholder="So we can credit you if we implement your idea">
+                    <div class="description">Optional - but we'd love to give you credit for great ideas!</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="your-email">Your Email (Optional)</label>
+                    <input type="email" id="your-email" name="your-email" placeholder="If you want updates on your feature request">
+                    <div class="description">Optional - only if you want us to follow up with questions or updates</div>
+                </div>
+                
+                <button type="submit" class="submit-btn">📧 Submit Feature Request</button>
+            </form>
+            
+            <div class="alternative-options">
+                <h3>🔀 Other Ways to Request Features</h3>
+                <p>
+                    <a href="https://github.com/ever-just/project-fosh/issues/new" target="_blank">Create GitHub Issue</a> |
+                    <a href="https://github.com/ever-just/project-fosh/discussions" target="_blank">GitHub Discussions</a> |
+                    <a href="mailto:company@everjust.com">Direct Email</a>
+                </p>
+                <p style="margin-top: 10px; font-size: 0.9em; color: #666;">
+                    GitHub issues are public and allow for community discussion. Email is private and direct to our team.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced mailto functionality
+        document.getElementById('featureForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            let emailBody = "=== KEY MANAGER FEATURE REQUEST ===\n\n";
+            
+            emailBody += "FEATURE TITLE:\n" + (formData.get('feature-title') || 'Not specified') + "\n\n";
+            emailBody += "DESCRIPTION:\n" + (formData.get('feature-description') || 'Not specified') + "\n\n";
+            emailBody += "USE CASE:\n" + (formData.get('use-case') || 'Not specified') + "\n\n";
+            emailBody += "PRIORITY: " + (formData.get('priority') || 'Not specified') + "\n\n";
+            
+            if (formData.get('your-name')) {
+                emailBody += "SUBMITTED BY: " + formData.get('your-name') + "\n";
+            }
+            if (formData.get('your-email')) {
+                emailBody += "CONTACT EMAIL: " + formData.get('your-email') + "\n";
+            }
+            
+            emailBody += "\n--- End of Feature Request ---";
+            
+            const subject = "Feature Request: " + (formData.get('feature-title') || 'New Feature');
+            const mailtoLink = `mailto:company@everjust.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Try to open email client
+            window.location.href = mailtoLink;
+            
+            // Show confirmation
+            setTimeout(() => {
+                alert('Email client should have opened with your feature request. If not, please email company@everjust.com directly with your request.');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Project Fosh",
+  "version": "1.0",
+  "description": "Securely store and manage your API keys with ease",
+  "permissions": [
+    "storage",
+    "clipboardWrite"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Project Fosh"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+} 

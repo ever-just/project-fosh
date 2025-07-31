@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Fosh</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">🔐 Project Fosh</h1>
+            <button id="toggleAddForm" class="btn-plus">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+            </button>
+        </header>
+
+        <div id="addKeyForm" class="add-form hidden">
+            <input type="text" id="keyName" placeholder="API Key Name (e.g., OpenAI)" class="input-field">
+            <input type="text" id="keyValue" placeholder="API Key Value" class="input-field">
+            <textarea id="keyDescription" placeholder="Description (optional)" class="textarea-field"></textarea>
+            <div class="form-actions">
+                <button id="saveKey" class="btn btn-success">Save</button>
+                <button id="cancelAdd" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+
+        <div class="keys-container">
+            <div id="keysList" class="keys-list">
+                <div id="emptyState" class="empty-state">
+                    <div class="empty-icon">🗂️</div>
+                    <p>No API keys stored yet</p>
+                    <p class="empty-subtitle">Click the + button to get started</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="editModal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Edit API Key</h3>
+                    <button id="closeModal" class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="editKeyName" placeholder="API Key Name" class="input-field">
+                    <input type="text" id="editKeyValue" placeholder="API Key Value" class="input-field">
+                    <textarea id="editKeyDescription" placeholder="Description (optional)" class="textarea-field"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button id="updateKey" class="btn btn-success">Update</button>
+                    <button id="deleteKey" class="btn btn-danger">Delete</button>
+                    <button id="cancelEdit" class="btn btn-secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="toast" class="toast hidden">
+            <span id="toastMessage"></span>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html> 

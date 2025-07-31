@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Chrome Extension Icons</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .icon-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .icon-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .icon-box h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        svg {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .instructions {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #2196F3;
+        }
+        .download-btn {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .download-btn:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔐 API Key Manager - Chrome Extension Icons</h1>
+    
+    <div class="instructions">
+        <h3>How to use these icons:</h3>
+        <ol>
+            <li>Right-click on each SVG icon below</li>
+            <li>Select "Save image as..." or "Copy image"</li>
+            <li>Save as PNG files with the correct names:
+                <ul>
+                    <li>16x16 → <code>icon16.png</code></li>
+                    <li>48x48 → <code>icon48.png</code></li>
+                    <li>128x128 → <code>icon128.png</code></li>
+                </ul>
+            </li>
+            <li>Place the PNG files in your extension folder</li>
+            <li>Or use an online SVG to PNG converter</li>
+        </ol>
+    </div>
+
+    <div class="icon-container">
+        <div class="icon-box">
+            <h3>16x16 Icon</h3>
+            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="grad16" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <rect width="16" height="16" rx="3" fill="url(#grad16)"/>
+                <path d="M4 6.5A1.5 1.5 0 0 1 5.5 5h2A1.5 1.5 0 0 1 9 6.5V7h1a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1v-.5A.5.5 0 0 0 7.5 6h-2a.5.5 0 0 0-.5.5V7H4v-.5z" fill="white"/>
+            </svg>
+            <br>
+            <button class="download-btn" onclick="downloadSVG('icon16', 16)">Download PNG</button>
+        </div>
+
+        <div class="icon-box">
+            <h3>48x48 Icon</h3>
+            <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="grad48" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <rect width="48" height="48" rx="8" fill="url(#grad48)"/>
+                <g transform="translate(12, 12)">
+                    <path d="M6 13.5A4.5 4.5 0 0 1 10.5 9h3A4.5 4.5 0 0 1 18 13.5V15h3a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-6a3 3 0 0 1 3-3h3v-1.5A1.5 1.5 0 0 0 10.5 12h-3A1.5 1.5 0 0 0 6 13.5V15H3v-1.5z" fill="white"/>
+                    <circle cx="12" cy="21" r="1.5" fill="#667eea"/>
+                </g>
+            </svg>
+            <br>
+            <button class="download-btn" onclick="downloadSVG('icon48', 48)">Download PNG</button>
+        </div>
+
+        <div class="icon-box">
+            <h3>128x128 Icon</h3>
+            <svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="grad128" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                    </linearGradient>
+                    <filter id="shadow">
+                        <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+                    </filter>
+                </defs>
+                <rect width="128" height="128" rx="20" fill="url(#grad128)" filter="url(#shadow)"/>
+                <g transform="translate(32, 32)">
+                    <path d="M16 36A12 12 0 0 1 28 24h8A12 12 0 0 1 48 36v4h8a8 8 0 0 1 8 8v16a8 8 0 0 1-8 8H16a8 8 0 0 1-8-8V48a8 8 0 0 1 8-8h8v-4A4 4 0 0 0 28 32h-8a4 4 0 0 0-4 4v4H8v-4z" fill="white"/>
+                    <circle cx="32" cy="56" r="4" fill="#667eea"/>
+                    <rect x="30" y="60" width="4" height="8" fill="#667eea"/>
+                </g>
+            </svg>
+            <br>
+            <button class="download-btn" onclick="downloadSVG('icon128', 128)">Download PNG</button>
+        </div>
+    </div>
+
+    <div class="instructions">
+        <h3>Alternative: Remove Icon References</h3>
+        <p>If you don't want to create icons, you can remove the "icons" section from <code>manifest.json</code>:</p>
+        <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px;">
+Remove these lines from manifest.json:
+"icons": {
+  "16": "icon16.png",
+  "48": "icon48.png", 
+  "128": "icon128.png"
+}</pre>
+    </div>
+
+    <script>
+        function downloadSVG(filename, size) {
+            // This is a placeholder - actual SVG to PNG conversion requires canvas
+            alert(`To convert to PNG:\n1. Right-click the ${size}x${size} SVG icon\n2. Save image as "${filename}.png"\n3. Or use an online SVG to PNG converter`);
+        }
+    </script>
+</body>
+</html>

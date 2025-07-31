@@ -1,0 +1,41 @@
+title: Project Fosh
+description: Secure API Key Management Chrome Extension
+url: ""
+baseurl: ""
+
+# GitHub Pages settings
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Additional settings
+lang: en
+author: EVERJUST COMPANY
+email: company@everjust.com
+
+# Navigation
+header_pages:
+  - privacy.md
+
+# Footer links
+social_links:
+  github: # Add your GitHub username when you create the repo
+
+# Google Analytics (optional)
+# google_analytics: 
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

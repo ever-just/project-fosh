@@ -1,0 +1,24 @@
+ICON FILES NEEDED FOR CHROME EXTENSION
+========================================
+
+The manifest.json references these icon files that you'll need to add:
+- icon16.png (16x16 pixels)
+- icon48.png (48x48 pixels) 
+- icon128.png (128x128 pixels)
+
+QUICK SOLUTION:
+You can create simple placeholder icons by:
+1. Creating 16x16, 48x48, and 128x128 pixel PNG files
+2. Use any image editor or online tool
+3. Suggested design: A key icon (🔐) or lock symbol
+
+ALTERNATIVE:
+1. Remove the "icons" section from manifest.json if you don't want custom icons
+2. Chrome will use default extension icons
+
+ICON RECOMMENDATIONS:
+- Use a key, lock, or security-related symbol
+- Colors: Blue, purple, or green to match the UI theme
+- Keep it simple and recognizable at small sizes
+
+The extension will work without custom icons, but they improve the user experience. 

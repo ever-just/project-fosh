@@ -104,12 +104,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function loadKeys() {
         try {
+            // Check if chrome.storage is available
+            if (!chrome.storage || !chrome.storage.local) {
+                throw new Error('Chrome storage API not available');
+            }
+            
             const result = await chrome.storage.local.get(['apiKeys']);
             allKeys = result.apiKeys || [];
             renderKeys(allKeys);
+            console.log('Keys loaded successfully:', allKeys.length, 'keys found');
         } catch (error) {
             console.error('Error loading keys:', error);
-            showToast('Error loading keys', 'error');
+            showToast('Error loading keys: ' + error.message, 'error');
         }
     }
 
@@ -248,11 +254,29 @@ document.addEventListener('DOMContentLoaded', function() {
             animateButton(e.target);
             const value = e.target.dataset.value;
             try {
+                // Check if clipboard API is available
+                if (!navigator.clipboard) {
+                    throw new Error('Clipboard API not available - try using HTTPS or newer Chrome version');
+                }
                 await navigator.clipboard.writeText(value);
                 showToast('Copied to clipboard!');
             } catch (error) {
                 console.error('Error copying to clipboard:', error);
-                showToast('Error copying to clipboard', 'error');
+                showToast('Copy failed: ' + error.message, 'error');
+                
+                // Fallback: Try to copy using execCommand (deprecated but more compatible)
+                try {
+                    const textArea = document.createElement('textarea');
+                    textArea.value = value;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    showToast('Copied to clipboard (fallback method)!');
+                } catch (fallbackError) {
+                    console.error('Fallback copy also failed:', fallbackError);
+                    showToast('Copy failed completely - please copy manually', 'error');
+                }
             }
         }
         

@@ -3,6 +3,7 @@
   "name": "API Key Manager",
   "version": "1.0",
   "description": "Securely store and manage your API keys with ease",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApQT7vQ5Q7dKmBQZHKz2YjpQE8RkGQdPW3mDxjJ5jK1N7sT9qGhZdYuJxsZlgJkv8G7tDw4W2nCkEqX9JmvL3HhZKqE8LtCbZgJqvU4rKqX8E1QaXtBZ8UmJ4Y5dTq7nH2vI6wTJkU9rQzLmHxC5VjP4bU6yGqN9F2kZ7JqL1H8E5WtC2pR6VhJ9X4sQ7LgZKqN3T5rU1Y8dC7vH2wE9L4kB6F3jP5qR8XtH1G9S2mZ4vL7cY1K8Q6rT3pN9dX5uH2wJ7gB4R1mS8cV5lL9Y6qE2xT7nK3pH8rC1wQ4ZtG9U6jB2fM3sN7", 
   "permissions": [
     "storage",
     "clipboardWrite"

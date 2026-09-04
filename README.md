@@ -1,3 +1,10 @@
+> ## ⛔️ ARCHIVED — not maintained
+>
+> This repository is read-only. It is kept for reference and history.
+> Project Fosh, a Chrome extension for secure API-key management (2025). Not maintained.
+>
+> Archived 2026-09-04.
+
 # 🔐 API Key Manager - Chrome Extension (Project Fosh)
 
 A secure and user-friendly Chrome extension for storing and managing your API keys with a beautiful modern interface.
